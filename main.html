@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Retro Launcher</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <!-- Bubble background -->
+  <div id="bubbles"></div>
+
+  <!-- Console selection screen -->
+  <div id="menu">
+    <h1>Select Console</h1>
+
+    <!-- Built-in folders -->
+    <div class="console-entry selected" data-folder="N64" data-type="built-in">
+      <img src="https://cdn.mos.cms.futurecdn.net/XU78J4ECmCkE9eWzjT7sS.jpg" class="console-img" />
+      <span>Nintendo 64</span>
+    </div>
+    <div class="console-entry" data-folder="SegaGenesis" data-type="built-in">
+      <img src="https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_1.5/c_scale,w_500/store/software/switch/70010000046988/50d67f56b0bf48285ae7f97249786ca8f5c533e9f4d9ce80b37c75ac4b90bcb1" class="console-img" />
+      <span>Sega Genesis</span>
+    </div>
+    <div class="console-entry" data-folder="NDS" data-type="built-in">
+      <img src="https://img.redbull.com/images/c_limit,w_1500,h_1000/f_auto,q_auto/redbullcom/2014/11/20/1331691213266_2/throwback-thursday-the-greatest-nintendo-ds-games" class="console-img" />
+      <span>Nintendo DS</span>
+    </div>
+    <div class="console-entry" data-folder="PlayStation" data-type="built-in">
+      <img src="https://i0.wp.com/tokyotreatblog.wpcomstaging.com/wp-content/uploads/2025/02/playstation-1-thumbnail.webp?fit=1024%2C683&ssl=1" class="console-img" />
+      <span>PlayStation</span>
+    </div>
+
+    <!-- Custom folders -->
+    <div id="custom-folders"></div>
+    <button id="add-folder">＋ Add Folder</button>
+    <button id="open-settings">⚙️ Settings</button>
+  </div>
+
+  <!-- Game list screen -->
+  <div id="game-list" style="display:none;">
+    <h1 id="folder-title"></h1>
+    <ul id="games"></ul>
+    <button id="back">← Back</button>
+  </div>
+
+  <!-- Settings screen -->
+  <div id="settings" style="display:none;">
+    <h1>Settings</h1>
+
+    <h2>Hiding Settings</h2>
+    <label><input type="checkbox" id="cloak-tab" /> Cloak Tab Title</label><br>
+    <label>
+      Redirect Key: <input type="text" id="redirect-key" placeholder="e.g. G" />
+      URL: <input type="text" id="redirect-url" placeholder="https://..." />
+    </label><br>
+    <label>
+      Emergency Key: <input type="text" id="emergency-key" placeholder="e.g. Esc" />
+    </label><br>
+
+    <h2>Style Settings</h2>
+    <select id="style-select">
+      <option value="default">Default Style</option>
+      <option value="ps1">PS1 Style</option>
+      <option value="n64">N64 Style</option>
+      <option value="xp">Windows XP Style</option>
+    </select>
+
+    <button id="close-settings">← Back</button>
+  </div>
+
+  <!-- Keybinds -->
+  <div id="keybinds">
+    <p>↑ ↓ to navigate | Enter to select | ⌫ Backspace to go back</p>
+  </div>
+
+  <!-- Hidden file upload -->
+  <input type="file" id="file-upload" accept=".html" style="display:none;" />
+
+  <!-- Launcher logic -->
+  <script src="assets/launcher.js"></script>
+
+  <!-- Bubble animation script -->
+  <script>
+    const bubbleContainer = document.getElementById('bubbles');
+    for (let i = 0; i < 20; i++) {
+      const b = document.createElement('div');
+      b.className = 'bubble';
+      b.style.width = b.style.height = `${Math.random() * 40 + 20}px`;
+      b.style.left = `${Math.random() * 100}vw`;
+      b.style.animationDuration = `${10 + Math.random() * 20}s`;
+      bubbleContainer.appendChild(b);
+    }
+  </script>
+  <audio id="bg-music" src="assets/menutheme.mp3" autoplay loop></audio>
+</body>
+</html>
