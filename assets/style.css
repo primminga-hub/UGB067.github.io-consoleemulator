@@ -1,0 +1,112 @@
+/* Base styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #444, #111);
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  transition: background 0.4s ease;
+}
+
+/* Scrollable layout */
+#menu, #game-list, #settings {
+  animation: fadeIn 0.6s ease-in-out;
+  padding: 20px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+/* Console entries and game list */
+.console-entry, #games li {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #666;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 10px;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.console-entry:hover,
+#games li:hover,
+.console-entry.selected,
+#games li.selected {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.console-img {
+  width: 100px;
+  height: auto;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+/* Buttons */
+button {
+  background: #222;
+  color: #fff;
+  border: 1px solid #555;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background: #555;
+}
+
+/* Keybinds */
+#keybinds {
+  position: fixed;
+  bottom: 10px;
+  left: 20px;
+  font-size: 0.9em;
+  opacity: 0.7;
+  z-index: 10;
+}
+
+/* Fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Bubble background */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: floatBubble linear infinite;
+}
+
+@keyframes floatBubble {
+  0% { transform: translateY(100vh) scale(0.5); }
+  100% { transform: translateY(-10vh) scale(1.2); }
+}
+
+/* Style themes */
+body.ps1 {
+  font-family: 'Press Start 2P', monospace;
+  background: #000;
+  color: #0f0;
+  text-shadow: 0 0 2px #0f0;
+}
+
+body.n64 {
+  background: radial-gradient(circle, #ff0, #f00);
+  color: #fff;
+}
+
+body.xp {
+  background: linear-gradient(to bottom, #cce, #88b);
+  color: #000;
+}
+
+body.default {
+  background: linear-gradient(to bottom, #444, #111);
+  color: #fff;
+}
